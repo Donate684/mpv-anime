@@ -158,11 +158,11 @@ local icons = {
     minimize = "{\\p1}m 0 0 m 24 24 m 4 18 l 20 18 l 20 20 l 4 20{\\p0}",
     maximize = "{\\p1}m 0 0 m 24 24 m 18 4 l 6 4 b 4.9 4 4 4.9 4 6 l 4 18 b 4 19.1 4.9 20 6 20 l 18 20 b 19.1 20 20 19.1 20 18 l 20 6 b 20 4.9 19.1 4 18 4 m 18 18 l 6 18 l 6 6 l 18 6 l 18 18{\\p0}",
     maximize_exit = "{\\p1}m 0 0 m 24 24 m 6 8 l 4 8 l 4 18 b 4 19.1 4.9 20 6 20 l 16 20 l 16 18 l 6 18 m 18 4 l 10 4 b 8.9 4 8 4.9 8 6 l 8 14 b 8 15.1 8.9 16 10 16 l 18 16 b 19.1 16 20 15.1 20 14 l 20 6 b 20 4.9 19.1 4 18 4 m 18 14 l 10 14 l 10 6 l 18 6{\\p0}",
-    fs_enter = "{\\p1}m 0 0 m 24 24 m 7 14 l 5 14 l 5 19 l 10 19 l 10 17 l 7 17 l 7 14 m 5 10 l 7 10 l 7 7 l 10 7 l 10 5 l 5 5 l 5 10 m 17 17 l 14 17 l 14 19 l 19 19 l 19 14 l 17 14 l 17 17 m 14 5 l 14 7 l 17 7 l 17 10 l 19 10 l 19 5 l 14 5{\\p0}",
-    fs_exit = "{\\p1}m 0 0 m 24 24 m 5 16 l 8 16 l 8 19 l 10 19 l 10 14 l 5 14 l 5 16 m 8 8 l 5 8 l 5 10 l 10 10 l 10 5 l 8 5 l 8 8 m 14 19 l 16 19 l 16 16 l 19 16 l 19 14 l 14 14 l 14 19 m 16 8 l 16 5 l 14 5 l 14 10 l 19 10 l 19 8 l 16 8{\\p0}",
+    fs_enter = "{\\p1}m 0 0 m 20 20 m 2.857143 12.857143 l 0 12.857143 l 0 20 l 7.142857 20 l 7.142857 17.142857 l 2.857143 17.142857 m 0 7.142857 l 2.857143 7.142857 l 2.857143 2.857143 l 7.142857 2.857143 l 7.142857 0 l 0 0 m 17.142857 17.142857 l 12.857143 17.142857 l 12.857143 20 l 20 20 l 20 12.857143 l 17.142857 12.857143 m 12.857143 0 l 12.857143 2.857143 l 17.142857 2.857143 l 17.142857 7.142857 l 20 7.142857 l 20 0{\\p0}",
+    fs_exit = "{\\p1}m 0 0 m 20 20 m 0 15.714286 l 4.285714 15.714286 l 4.285714 20 l 7.142857 20 l 7.142857 12.857143 l 0 12.857143 m 4.285714 4.285714 l 0 4.285714 l 0 7.142857 l 7.142857 7.142857 l 7.142857 0 l 4.285714 0 m 12.857143 20 l 15.714284 20 l 15.714284 15.714286 l 20 15.714286 l 20 12.857143 l 12.857143 12.857143 m 15.714284 4.285714 l 15.714284 0 l 12.857143 0 l 12.857143 7.142857 l 20 7.142857 l 20 4.285714{\\p0}",
     info = "{\\p1}m 0 0 m 24 24 m 11 7 l 13 7 l 13 9 l 11 9 m 11 11 l 13 11 l 13 17 l 11 17 m 12 2 b 6.48 2 2 6.48 2 12 b 2 17.52 6.48 22 12 22 b 17.52 22 22 17.52 22 12 b 22 6.48 17.52 2 12 2 m 12 20 b 7.59 20 4 16.41 4 12 b 4 7.59 7.59 4 12 4 b 16.41 4 20 7.59 20 12 b 20 16.41 16.41 20 12 20{\\p0}",
-    cy_audio = "{\\p1}m 0 0 m 24 24 m 20 4 l 4 4 b 2.9 4 2 4.9 2 6 l 2 18 b 2 19.1 2.9 20 4 20 l 20 20 b 21.1 20 22 19.1 22 18 l 22 6 b 22 4.9 21.1 4 20 4 m 7.76 16.24 l 6.35 17.65 b 4.78 16.1 4 14.05 4 12 b 4 9.95 4.78 7.9 6.34 6.34 l 7.75 7.75 b 6.59 8.93 6 10.46 6 12 b 6 13.54 6.59 15.07 7.76 16.24 m 12 16 b 9.79 16 8 14.21 8 12 b 8 9.79 9.79 8 12 8 b 14.21 8 16 9.79 16 12 b 16 14.21 14.21 16 12 16 m 17.66 17.66 l 16.25 16.25 b 17.41 15.07 18 13.54 18 12 b 18 10.46 17.41 8.93 16.24 7.76 l 17.65 6.35 b 19.22 7.9 20 9.95 20 12 b 20 14.05 19.22 16.1 17.66 17.66 m 12 10 b 10.9 10 10 10.9 10 12 b 10 13.1 10.9 14 12 14 b 13.1 14 14 13.1 14 12 b 14 10.9 13.1 10 12 10{\\p0}",
-    cy_sub = "{\\p1}m 0 0 m 24 24 m 20 4 l 4 4 b 2.9 4 2 4.9 2 6 l 2 18 b 2 19.1 2.9 20 4 20 l 20 20 b 21.1 20 22 19.1 22 18 l 22 6 b 22 4.9 21.1 4 20 4 m 4 12 l 8 12 l 8 14 l 4 14 l 4 12 m 14 18 l 4 18 l 4 16 l 14 16 l 14 18 m 20 18 l 16 18 l 16 16 l 20 16 l 20 18 m 20 14 l 10 14 l 10 12 l 20 12 l 20 14{\\p0}",
+    cy_audio = "{\\p1}m 0 0 m 24 24 m 15 6 l 3 6 l 3 8 l 15 8 l 15 6 m 15 10 l 3 10 l 3 12 l 15 12 l 15 10 m 3 16 l 11 16 l 11 14 l 3 14 l 3 16 m 17 6 l 17 14.18 b 16.69 14.07 16.35 14 16 14 b 14.34 14 13 15.34 13 17 b 13 18.66 14.34 20 16 20 b 17.66 20 19 18.66 19 17 l 19 8 l 22 8 l 22 6 l 17 6{\\p0}",
+    cy_sub = "{\\p1}m 0 0 m 20 18 m 17.777778 0 l 2.222222 0 b 0.988889 0 0 1.0125 0 2.25 l 0 15.75 b 0 16.9875 0.988889 18 2.222222 18 l 17.777778 18 b 19 18 20 16.9875 20 15.75 l 20 2.25 b 20 1.0125 19 0 17.777778 0 m 8.888888 7.3125 b 8.888888 7.6275 8.644444 7.875 8.333334 7.875 l 7.777778 7.875 b 7.466667 7.875 7.222222 7.6275 7.222222 7.3125 l 5 7.3125 l 5 10.6875 l 7.222222 10.6875 b 7.222222 10.3725 7.466667 10.125 7.777778 10.125 l 8.333334 10.125 b 8.644444 10.125 8.888888 10.3725 8.888888 10.6875 l 8.888888 11.25 b 8.888888 11.86875 8.388888 12.375 7.777778 12.375 l 4.444444 12.375 b 3.833333 12.375 3.333333 11.86875 3.333333 11.25 l 3.333333 6.75 b 3.333333 6.13125 3.833333 5.625 4.444444 5.625 l 7.777778 5.625 b 8.388888 5.625 8.888888 6.13125 8.888888 6.75 m 16.666666 7.3125 b 16.666666 7.6275 16.422222 7.875 16.111112 7.875 l 15.555556 7.875 b 15.244444 7.875 15 7.6275 15 7.3125 l 12.777778 7.3125 l 12.777778 10.6875 l 15 10.6875 b 15 10.3725 15.244444 10.125 15.555556 10.125 l 16.111112 10.125 b 16.422222 10.125 16.666666 10.3725 16.666666 10.6875 l 16.666666 11.25 b 16.666666 11.86875 16.166666 12.375 15.555556 12.375 l 12.222222 12.375 b 11.611112 12.375 11.111112 11.86875 11.111112 11.25 l 11.111112 6.75 b 11.111112 6.13125 11.611112 5.625 12.222222 5.625 l 15.555556 5.625 b 16.166666 5.625 16.666666 6.13125 16.666666 6.75{\\p0}",
     pl_prev = "{\\p1}m 0 0 m 24 24 m 6 6 l 8 6 l 8 18 l 6 18 m 9.5 12 l 18 18 l 18 6{\\p0}",
     pl_next = "{\\p1}m 0 0 m 24 24 m 6 18 l 14.5 12 l 6 6 l 6 18 m 16 6 l 16 18 l 18 18 l 18 6 l 16 6{\\p0}",
     skipback = "{\\p1}m 0 0 m 24 24 m 11 18 l 11 6 l 2.5 12 l 11 18 m 11.5 12 l 20 18 l 20 6 l 11.5 12{\\p0}",
@@ -172,7 +172,10 @@ local icons = {
     volume_high = "{\\p1}m 0 0 m 24 24 m 3 9 l 3 15 l 7 15 l 12 20 l 12 4 l 7 9 l 3 9 m 16.5 12 b 16.5 10.23 15.48 8.71 14 7.97 l 14 16.02 b 15.48 15.29 16.5 13.77 16.5 12 m 14 3.23 l 14 5.29 b 16.89 6.15 19 8.83 19 12 b 19 15.17 16.89 17.85 14 18.71 l 14 20.77 b 18.01 19.86 21 16.28 21 12 b 21 7.72 18.01 4.14 14 3.23{\\p0}",
     volume_over = "{\\p1}m 0 0 m 24 24 m 3 9 l 3 15 l 7 15 l 12 20 l 12 4 l 7 9 l 3 9 m 16 6 l 18 6 l 18 14 l 16 14 m 16 16 l 18 16 l 18 18 l 16 18{\\p0}",
     volume_mute = "{\\p1}m 0 0 m 24 24 m 16.5 12 b 16.5 10.23 15.48 8.71 14 7.97 l 14 10.18 l 16.45 12.63 b 16.48 12.43 16.5 12.22 16.5 12 m 19 12 b 19 12.94 18.8 13.82 18.46 14.64 l 19.97 16.15 b 20.63 14.91 21 13.5 21 12 b 21 7.72 18.01 4.14 14 3.23 l 14 5.29 b 16.89 6.15 19 8.83 19 12 m 4.27 3 l 3 4.27 l 7.73 9 l 3 9 l 3 15 l 7 15 l 12 20 l 12 13.27 l 16.25 17.52 b 15.58 18.04 14.83 18.45 14 18.7 l 14 20.76 b 15.38 20.45 16.63 19.81 17.69 18.95 l 19.73 21 l 21 19.73 l 12 10.73 l 4.27 3 m 12 4 l 9.91 6.09 l 12 8.18 l 12 4{\\p0}",
+    tog_ontop = "{\\p1}m 0 0 m 24 24 m 11.99 18.54 l 4.62 12.81 l 3 14.07 l 12 21.07 l 21 14.07 l 19.37 12.8 l 11.99 18.54 m 12 16 l 19.36 10.27 l 21 9 l 12 2 l 3 9 l 4.63 10.27 l 12 16{\\p0}",
+    tog_ontop_off = "{\\p1}m 0 0 m 24 24 m 19.81 14.99 l 21 14.07 l 19.57 12.64 l 18.38 13.56 l 19.81 14.99 m 19.36 10.27 l 21 9 l 12 2 l 9.09 4.27 l 16.96 12.15 l 19.36 10.27 m 3.27 1 l 2 2.27 l 6.22 6.49 l 3 9 l 4.63 10.27 l 12 16 l 14.1 14.37 l 15.53 15.8 l 12 18.54 l 4.63 12.81 l 3 14.07 l 12 21.07 l 16.95 17.22 l 20.73 21 l 22 19.73 l 3.27 1{\\p0}",
 }
+
 
 local thumbfast = {
     width = 0,
@@ -1601,7 +1604,7 @@ function osc_init()
     -- prev
     ne = new_element('pl_prev', 'button')
 
-    ne.content = '\xEF\x8E\xB5'
+    ne.content = icons.pl_prev
     ne.enabled = (pl_pos > 1) or (loop ~= 'no')
     ne.eventresponder['mbtn_left_up'] =
         function ()
@@ -1613,7 +1616,7 @@ function osc_init()
     --next
     ne = new_element('pl_next', 'button')
 
-    ne.content = '\xEF\x8E\xB4'
+    ne.content = icons.pl_next
     ne.enabled = (have_pl and (pl_pos < pl_count)) or (loop ~= 'no')
     ne.eventresponder['mbtn_left_up'] =
         function ()
@@ -1674,7 +1677,7 @@ function osc_init()
     ne = new_element('cy_audio', 'button')
     ne.enabled = (#tracks_osc.audio > 0)
     ne.visible = (osc_param.playresx >= 600)
-    ne.content = '\xEF\x8E\xB7'
+    ne.content = icons.cy_audio
     ne.tooltip_style = osc_styles.Tooltip
     ne.tooltipF = function ()
         local msg = texts.off
@@ -1704,7 +1707,7 @@ function osc_init()
     ne = new_element('cy_sub', 'button')
     ne.enabled = (#tracks_osc.sub > 0)
     ne.visible = (osc_param.playresx >= 540)
-    ne.content = '\xEF\x8C\xA4'
+    ne.content = icons.cy_sub
     ne.tooltip_style = osc_styles.Tooltip
     ne.tooltipF = function ()
         local msg = texts.off
@@ -1737,10 +1740,10 @@ function osc_init()
     ne.content = function()
         local volume = mp.get_property_number("volume", 0)
         local mute = mp.get_property_native("mute")
-        local volicon = {'\xEF\x8E\xBA',
-                         '\xEF\x8E\xB9', '\xEF\x8E\xBC'}
+        local volicon = {icons.volume_low, icons.volume_medium,
+                         icons.volume_high, icons.volume_over}
         if volume == 0 or mute then
-            return '\xEF\x8E\xBB'
+            return icons.volume_mute
         else
             return volicon[math.min(3,math.ceil(volume / (100/3)))]
         end
@@ -1752,9 +1755,9 @@ function osc_init()
     ne = new_element('tog_fs', 'button')
     ne.content = function ()
         if (state.fullscreen) then
-            return ('\xEF\x85\xAC')
+            return icons.fs_exit
         else
-            return ('\xEF\x85\xAD')
+            return icons.fs_enter
         end
     end
     --ne.visible = (osc_param.playresx >= 540)
@@ -1765,9 +1768,9 @@ function osc_init()
     ne = new_element('ontop', 'button')
     ne.content = function ()
         if mp.get_property('ontop') == 'no' then
-            return ('\xEF\x86\x8B')
+            return icons.tog_ontop_off
         else
-            return ('\xEF\x86\x8C')
+            return icons.tog_ontop
         end
     end
     --ne.visible = (osc_param.playresx >= 540)
@@ -1776,7 +1779,7 @@ function osc_init()
         
     --tog_info
     ne = new_element('tog_info', 'button')
-    ne.content = ''
+    ne.content = icons.info
     ne.visible = (osc_param.playresx >= 600)
     ne.eventresponder['mbtn_left_up'] =
         function () mp.commandv('script-binding', 'stats/display-stats-toggle') end
