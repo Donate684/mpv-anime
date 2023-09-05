@@ -14,6 +14,14 @@ From trying to integrate Anime 4K to a collection of useful scripts.
 7. <b>SmartCopyPaste</b> - Allows you to use a simple ctrl+c to insert into the player a link from YouTube and not only. (thx [Eisa01](https://github.com/Eisa01/mpv-scripts))
 8. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik](https://github.com/SilverEzhik/mpv-install))
 
+# How to install?
+1. Download latest the [files in this repository](https://github.com/Donate684/mpv-anime/archive/refs/heads/main.zip) and extract anywhere.
+2. Download [latest mpv build](https://sourceforge.net/projects/mpv-player-windows/files/)<br/>
+Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/wiki/Haswell_(microarchitecture)) or [AMD Excavator](https://en.wikipedia.org/wiki/Excavator_(microarchitecture)) download builds without v3 if you have an older processor.
+3. Extract archive in mpv folder.
+4. If u want integration with OS run with admin mpv-install.bat in mpv folder (not in mpv\installer)
+5. If u want youtube support run updater.bat
+
 # Files?
 | Plugin | Files |
 | :-: | :-: |
