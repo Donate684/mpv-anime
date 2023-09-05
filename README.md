@@ -10,7 +10,7 @@ From trying to integrate Anime 4K to a collection of useful scripts.
 5. <b>Discord RPC</b> - Allows others to see the title of what you are currently watching on Discord. (thx [noaione](https://github.com/noaione/mpv-discordRPC))
 6. <b>Autoload</b> - Allows you to switch between files in the same folder. (thx [mpv dev](https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua))
 7. <b>SmartCopyPaste</b> - Allows you to use a simple ctrl+c to insert into the player a link from YouTube and not only. (thx [Eisa01](https://github.com/Eisa01/mpv-scripts))
-8. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik]([https://github.com/Eisa01/mpv-scripts](https://github.com/SilverEzhik/mpv-install)))
+8. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik](https://github.com/SilverEzhik/mpv-install))
 
 # Files?
 | Plugin | Files |
