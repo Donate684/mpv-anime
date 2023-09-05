@@ -1,7 +1,8 @@
 # mpv-anime
 
 From trying to integrate Anime 4K to a collection of useful scripts.
-![preview](preview.png)
+
+![preview](preview.png?raw=true)
 
 # What include?
 1. <b>Anime 4K</b> - improves the quality of anime in real-time. (thx [bloc97](https://github.com/bloc97/Anime4K))
