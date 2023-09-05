@@ -26,7 +26,7 @@ Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/w
 | Plugin | Files |
 | :-: | :-: |
 | Anime 4K | mpv\portable_config\shaders\*.*, mpv\portable_config\mpv.conf #1-6, mpv\portable_config\input.conf #1-9|
-| Modernf UI | mpv\portable_config\scripts\modernf.lua, mpv\portable_config\fonts\Material-Design-Iconic-Font.ttf, mpv\portable_config\script-opts\modernf.conf |
+| Modernf UI | mpv\portable_config\scripts\modernf.lua, mpv\portable_config\script-opts\modernf.conf |
 | Russian Layout Fix | mpv\portable_config\scripts\russian-layout-bindings.lua |
 | Thumbfast | mpv\portable_config\scripts\thumbfast.lua, mpv\portable_config\script-opts\thumbfast.conf |
 | Discord RPC | mpv\portable_config\scripts\mpv-drpc.lua, mpv\discord-rpc.dll |
