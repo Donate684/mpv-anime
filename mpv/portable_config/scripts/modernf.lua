@@ -191,7 +191,7 @@ local tick_delay = 0.03
 -- Helperfunctions
 --
 
-function set_osd(res_x, res_y, text)
+function set_osd(res_x, res_y, text, z)
     if state.osd.res_x == res_x and
        state.osd.res_y == res_y and
        state.osd.data == text then
@@ -200,7 +200,7 @@ function set_osd(res_x, res_y, text)
     state.osd.res_x = res_x
     state.osd.res_y = res_y
     state.osd.data = text
-    state.osd.z = 1000
+    state.osd.z = z
     state.osd:update()
 end
 
@@ -694,7 +694,7 @@ function render_elements(master_ass)
                             elseif (sliderpos > (s_max - 3)) then
                                 an = an + 1
                             end
-                        elseif (sliderpos > (s_max-s_min)/2) then
+                        elseif (sliderpos > (s_max+s_min)/2) then
                             an = an + 1
                             tx = tx - 5
                         else
@@ -1702,7 +1702,12 @@ function osc_init()
         function () set_track('audio', -1) end    
     ne.eventresponder['shift+mbtn_left_down'] =
         function () show_message(get_tracklist('audio')) end
-                
+ 
+    ne.eventresponder["wheel_down_press"] =
+        function () set_track("audio", 1) end
+    ne.eventresponder["wheel_up_press"] =
+        function () set_track("audio", -1) end
+ 
     --cy_sub
     ne = new_element('cy_sub', 'button')
     ne.enabled = (#tracks_osc.sub > 0)
@@ -1732,6 +1737,11 @@ function osc_init()
         function () set_track('sub', -1) end
     ne.eventresponder['shift+mbtn_left_down'] =
         function () show_message(get_tracklist('sub')) end
+		
+	ne.eventresponder["wheel_down_press"] =
+        function () set_track("sub", 1) end
+    ne.eventresponder["wheel_up_press"] =
+        function () set_track("sub", -1) end
         
     -- vol_ctrl
     ne = new_element('vol_ctrl', 'button')
@@ -1914,6 +1924,11 @@ function osc_init()
         end
     ne.eventresponder['reset'] =
         function (element) element.state.lastseek = nil end
+		
+	ne.eventresponder["wheel_up_press"] =
+        function () mp.commandv("osd-auto", "seek",  10) end
+    ne.eventresponder["wheel_down_press"] =
+        function () mp.commandv("osd-auto", "seek", -10) end
 
     --volumebar
     ne = new_element('volumebar', 'slider')
@@ -2305,7 +2320,7 @@ function render()
 
     -- submit
     set_osd(osc_param.playresy * osc_param.display_aspect,
-            osc_param.playresy, ass.text)
+            osc_param.playresy, ass.text, 1000)
 end
 
 --
@@ -2434,7 +2449,7 @@ function show_logo()
     ass:pos(logo_x, logo_y+140)
     ass:an(8)
     ass:append(texts.welcome)
-    set_osd(osd_w, osd_h, ass.text)
+    set_osd(osd_w, osd_h, ass.text, -1000)
 end
 
 -- called by mpv on every frame
