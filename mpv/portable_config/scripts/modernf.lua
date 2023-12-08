@@ -43,7 +43,8 @@ local user_opts = {
     volumecontrol = true,       -- whether to show mute button and volumne slider
     processvolume = false,		-- volue slider show processd volume
     language = 'eng',            -- eng=English, chs=Chinese
-    boxalpha = 180
+    boxalpha = 180,
+    deadzone = 200              -- area of mouse movement for osc showhide,pixel from bottom to top
 }
 
 -- Localization
@@ -1133,9 +1134,11 @@ layouts["reduced"] = function ()
     add_area('input', get_hitbox_coords(posX, posY, 1, osc_geo.w, 104))
 
     -- area for show/hide
-    add_area('showhide', 0, osc_param.playresy-200, osc_param.playresx, osc_param.playresy)
-    add_area('showhide_wc', osc_param.playresx*0.67, 0, osc_param.playresx, 48)
-    
+    add_area('showhide', 0, osc_param.playresy-user_opts.deadzone, osc_param.playresx, osc_param.playresy)
+    if window_controls_enabled() then
+    add_area('showhide_wc', osc_param.playresx*0.5, 0, osc_param.playresx, 48)
+    end
+	
     -- fetch values
     local osc_w, osc_h=
         osc_geo.w, osc_geo.h
@@ -1262,8 +1265,10 @@ layouts["original"] = function ()
     add_area('input', get_hitbox_coords(posX, posY, 1, osc_geo.w, 104))
 
     -- area for show/hide
-    add_area('showhide', 0, osc_param.playresy-200, osc_param.playresx, osc_param.playresy)
-    add_area('showhide_wc', osc_param.playresx*0.67, 0, osc_param.playresx, 48)
+    add_area('showhide', 0, osc_param.playresy-user_opts.deadzone, osc_param.playresx, osc_param.playresy)
+	if window_controls_enabled() then
+    add_area('showhide_wc', osc_param.playresx*0.5, 0, osc_param.playresx, 48)
+	end
     
     -- fetch values
     local osc_w, osc_h=
@@ -1430,9 +1435,11 @@ layouts["mid"] = function ()
     add_area('input', get_hitbox_coords(posX, posY, 1, osc_geo.w, 104))
 
     -- area for show/hide
-    add_area('showhide', 0, osc_param.playresy-200, osc_param.playresx, osc_param.playresy)
-    add_area('showhide_wc', osc_param.playresx*0.67, 0, osc_param.playresx, 48)
-    
+    add_area('showhide', 0, osc_param.playresy-user_opts.deadzone, osc_param.playresx, osc_param.playresy)
+	if window_controls_enabled() then
+    add_area('showhide_wc', osc_param.playresx*0.5, 0, osc_param.playresx, 48)
+    end
+	
     -- fetch values
     local osc_w, osc_h=
         osc_geo.w, osc_geo.h
@@ -2571,6 +2578,7 @@ mp.observe_property('fullscreen', 'bool',
 mp.observe_property('mute', 'bool',
     function(name, val)
         state.mute = val
+		request_tick()
     end
 )
 mp.observe_property('volume', 'number',
@@ -2581,6 +2589,7 @@ mp.observe_property('volume', 'number',
 		else
 			state.proc_volume = val
 		end
+		request_tick()
 	end
 )
 mp.observe_property('border', 'bool',
@@ -2601,6 +2610,7 @@ mp.observe_property('idle-active', 'bool',
         request_tick()
     end
 )
+mp.observe_property('ontop', nil, request_tick)
 mp.observe_property('pause', 'bool', pause_state)
 mp.observe_property('demuxer-cache-state', 'native', cache_state)
 mp.observe_property('vo-configured', 'bool', function(name, val)
@@ -2660,8 +2670,6 @@ function always_on(val)
     if state.enabled then
         if val then
             show_osc()
-        else
-            hide_osc()
         end
     end
 end
@@ -2693,7 +2701,7 @@ function visibility_mode(mode, no_osd)
     end
     
     user_opts.visibility = mode
-    utils.shared_script_property_set("osc-visibility", mode)
+    mp.set_property_native("osc-visibility", mode)
     
     if not no_osd and tonumber(mp.get_property('osd-level')) >= 1 then
         mp.osd_message('OSC visibility: ' .. mode)
@@ -2723,7 +2731,7 @@ function idlescreen_visibility(mode, no_osd)
         user_opts.idlescreen = false
     end
 
-    utils.shared_script_property_set("osc-idlescreen", mode)
+    mp.set_property_native("osc-idlescreen", mode)
 
     if not no_osd and tonumber(mp.get_property("osd-level")) >= 1 then
         mp.osd_message("OSC logo visibility: " .. tostring(mode))
