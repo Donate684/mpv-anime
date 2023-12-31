@@ -11,7 +11,8 @@ From trying to integrate Anime 4K to a collection of useful scripts.
 4. <b>Thumbfast</b> - High-performance on-the-fly thumbnailer script. (thx [po5](https://github.com/po5/thumbfast))
 5. <b>Autoload</b> - Allows you to switch between files in the same folder. (thx [mpv dev](https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua))
 6. <b>SmartCopyPaste</b> - Allows you to use a simple ctrl+c to insert into the player a link from YouTube and not only. (thx [Eisa01](https://github.com/Eisa01/mpv-scripts))
-7. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik](https://github.com/SilverEzhik/mpv-install))
+7. <b>Discord RPC</b> - Allows others to see the title of what you are currently watching on Discord. (thx [noaione](https://github.com/noaione/mpv-discordRPC))
+8. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik](https://github.com/SilverEzhik/mpv-install))
 
 # How to install?
 1. Download latest the [files in this repository](https://github.com/Donate684/mpv-anime/archive/refs/heads/main.zip) and extract anywhere.
@@ -30,4 +31,5 @@ Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/w
 | Thumbfast | mpv\portable_config\scripts\thumbfast.lua, mpv\portable_config\script-opts\thumbfast.conf |
 | Autoload | mpv\portable_config\scripts\autoload.lua |
 | SmartCopyPaste | mpv\portable_config\scripts\SmartCopyPaste.lua, mpv\portable_config\script-opts\SmartCopyPaste.conf |
+| Discord RPC | mpv\portable_config\scripts\mpv-drpc.lua, mpv\discord-rpc.dll |
 | mpv-install | mpv\mpv-document.ico, mpv\mpv-install.bat, mpv\mpv-uninstall.bat, mpv\umpvw.exe |
