@@ -27,7 +27,6 @@ Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/w
 | :-: | :-: |
 | Anime 4K | mpv\portable_config\shaders\*.*, mpv\portable_config\mpv.conf #1-6, mpv\portable_config\input.conf #1-9|
 | Modernf UI | mpv\portable_config\scripts\modernf.lua, mpv\portable_config\script-opts\modernf.conf |
-| Russian Layout Fix | mpv\portable_config\scripts\russian-layout-bindings.lua |
 | Thumbfast | mpv\portable_config\scripts\thumbfast.lua, mpv\portable_config\script-opts\thumbfast.conf |
 | Autoload | mpv\portable_config\scripts\autoload.lua |
 | SmartCopyPaste | mpv\portable_config\scripts\SmartCopyPaste.lua, mpv\portable_config\script-opts\SmartCopyPaste.conf |
