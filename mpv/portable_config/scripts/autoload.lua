@@ -10,6 +10,12 @@
 To configure this script use file autoload.conf in directory script-opts (the "script-opts"
 directory must be in the mpv configuration directory, typically ~/.config/mpv/).
 
+Option `ignore_patterns` is a comma-separated list of patterns (see lua.org/pil/20.2.html).
+Additionally to the standard lua patterns, you can also escape commas with `%`,
+for example, the option `bak%,x%,,another` will be resolved as patterns `bak,x,` and `another`.
+But it does not mean you need to escape all lua patterns twice,
+so the option `bak%%,%.mp4,` will be resolved as two patterns `bak%%` and `%.mp4`.
+
 Example configuration would be:
 
 disabled=no
@@ -22,6 +28,7 @@ additional_audio_exts=list,of,ext
 ignore_hidden=yes
 same_type=yes
 directory_mode=recursive
+ignore_patterns=^~,^bak-,%.bak$
 
 --]]
 
@@ -42,7 +49,8 @@ o = {
     additional_audio_exts = "",
     ignore_hidden = true,
     same_type = false,
-    directory_mode = "auto"
+    directory_mode = "auto",
+    ignore_patterns = ""
 }
 options.read_options(o, nil, function(list)
     split_option_exts(list.additional_video_exts, list.additional_audio_exts, list.additional_image_exts)
@@ -67,23 +75,59 @@ function SetUnion (a,b)
     return a
 end
 
-function Split (s)
+-- Returns first and last positions in string or past-to-end indices
+function FindOrPastTheEnd (string, pattern, start_at)
+    local pos1, pos2 = string.find(string, pattern, start_at)
+    return pos1 or #string + 1,
+           pos2 or #string + 1
+end
+
+function Split (list)
     local set = {}
-    for v in string.gmatch(s, '([^,]+)') do set[v] = true end
+
+    local item_pos = 1
+    local item = ""
+
+    while item_pos <= #list do
+        local pos1, pos2 = FindOrPastTheEnd(list, "%%*,", item_pos)
+
+        local pattern_length = pos2 - pos1
+        local is_comma_escaped = pattern_length % 2
+
+        local pos_before_escape = pos1 - 1
+        local item_escape_count = pattern_length - is_comma_escaped
+
+        item = item .. string.sub(list, item_pos, pos_before_escape + item_escape_count)
+
+        if is_comma_escaped == 1 then
+            item = item .. ","
+        else
+            set[item] = true
+            item = ""
+        end
+
+        item_pos = pos2 + 1
+    end
+
+    set[item] = true
+
+    -- exclude empty items
+    set[""] = nil
+
     return set
 end
 
-EXTENSIONS_VIDEO = Set {
+EXTENSIONS_VIDEO_DEFAULT = Set {
     '3g2', '3gp', 'avi', 'flv', 'm2ts', 'm4v', 'mj2', 'mkv', 'mov',
     'mp4', 'mpeg', 'mpg', 'ogv', 'rmvb', 'webm', 'wmv', 'y4m'
 }
 
-EXTENSIONS_AUDIO = Set {
+EXTENSIONS_AUDIO_DEFAULT = Set {
     'aiff', 'ape', 'au', 'flac', 'm4a', 'mka', 'mp3', 'oga', 'ogg',
     'ogm', 'opus', 'wav', 'wma'
 }
 
-EXTENSIONS_IMAGES = Set {
+EXTENSIONS_IMAGES_DEFAULT = Set {
     'avif', 'bmp', 'gif', 'j2k', 'jp2', 'jpeg', 'jpg', 'jxl', 'png',
     'svg', 'tga', 'tif', 'tiff', 'webp'
 }
@@ -95,11 +139,28 @@ function split_option_exts(video, audio, image)
 end
 split_option_exts(true, true, true)
 
+function split_patterns()
+    o.ignore_patterns = Split(o.ignore_patterns)
+end
+split_patterns()
+
 function create_extensions()
     EXTENSIONS = {}
-    if o.videos then SetUnion(SetUnion(EXTENSIONS, EXTENSIONS_VIDEO), o.additional_video_exts) end
-    if o.audio then SetUnion(SetUnion(EXTENSIONS, EXTENSIONS_AUDIO), o.additional_audio_exts) end
-    if o.images then SetUnion(SetUnion(EXTENSIONS, EXTENSIONS_IMAGES), o.additional_image_exts) end
+    EXTENSIONS_VIDEO = {}
+    EXTENSIONS_AUDIO = {}
+    EXTENSIONS_IMAGES = {}
+    if o.videos then
+        SetUnion(SetUnion(EXTENSIONS_VIDEO, EXTENSIONS_VIDEO_DEFAULT), o.additional_video_exts)
+        SetUnion(EXTENSIONS, EXTENSIONS_VIDEO)
+    end
+    if o.audio then
+        SetUnion(SetUnion(EXTENSIONS_AUDIO, EXTENSIONS_AUDIO_DEFAULT), o.additional_audio_exts)
+        SetUnion(EXTENSIONS, EXTENSIONS_AUDIO)
+    end
+    if o.images then
+        SetUnion(SetUnion(EXTENSIONS_IMAGES, EXTENSIONS_IMAGES_DEFAULT), o.additional_image_exts)
+        SetUnion(EXTENSIONS, EXTENSIONS_IMAGES)
+    end
 end
 create_extensions()
 
@@ -127,19 +188,14 @@ function get_extension(path)
     end
 end
 
-table.filter = function(t, iter)
-    for i = #t, 1, -1 do
-        if not iter(t[i]) then
-            table.remove(t, i)
+function is_ignored(file)
+    for pattern, _ in pairs(o.ignore_patterns) do
+        if string.match(file, pattern) then
+            return true
         end
     end
-end
 
-table.append = function(t1, t2)
-    local t1_size = #t1
-    for i = 1, #t2 do
-        t1[t1_size + i] = t2[i]
-    end
+    return false
 end
 
 -- alphanum sorting for humans in Lua
@@ -174,19 +230,33 @@ function scan_dir(path, current_file, dir_mode, separator, dir_depth, total_file
     local files = utils.readdir(path, "files") or {}
     local dirs = dir_mode ~= "ignore" and utils.readdir(path, "dirs") or {}
     local prefix = path == "." and "" or path
-    table.filter(files, function (v)
+
+    local filter = function(t, iter)
+        for i = #t, 1, -1 do
+            if not iter(t[i]) then
+                table.remove(t, i)
+            end
+        end
+    end
+
+    filter(files, function (v)
         -- The current file could be a hidden file, ignoring it doesn't load other
         -- files from the current directory.
-        if (o.ignore_hidden and not (prefix .. v == current_file) and string.match(v, "^%.")) then
+        local current = prefix .. v == current_file
+        if o.ignore_hidden and not current and string.match(v, "^%.") then
             return false
         end
+        if not current and is_ignored(v) then
+            return false
+        end
+
         local ext = get_extension(v)
         if ext == nil then
             return false
         end
         return extensions[string.lower(ext)]
     end)
-    table.filter(dirs, function(d)
+    filter(dirs, function(d)
         return not ((o.ignore_hidden and string.match(d, "^%.")))
     end)
     alphanumsort(files)
@@ -196,7 +266,14 @@ function scan_dir(path, current_file, dir_mode, separator, dir_depth, total_file
         files[i] = prefix .. file
     end
 
-    table.append(total_files, files)
+    local append = function(t1, t2)
+        local t1_size = #t1
+        for i = 1, #t2 do
+            t1[t1_size + i] = t2[i]
+        end
+    end
+
+    append(total_files, files)
     if dir_mode == "recursive" then
         for _, dir in ipairs(dirs) do
             scan_dir(prefix .. dir .. separator, current_file, dir_mode,
@@ -206,19 +283,25 @@ function scan_dir(path, current_file, dir_mode, separator, dir_depth, total_file
         for i, dir in ipairs(dirs) do
             dirs[i] = prefix .. dir
         end
-        table.append(total_files, dirs)
+        append(total_files, dirs)
     end
 end
 
 function find_and_add_entries()
+    local aborted = mp.get_property_native("playback-abort")
+    if aborted then
+        msg.debug("stopping: playback aborted")
+        return
+    end
+
     local path = mp.get_property("path", "")
     local dir, filename = utils.split_path(path)
     msg.trace(("dir: %s, filename: %s"):format(dir, filename))
     if o.disabled then
-        msg.verbose("stopping: autoload disabled")
+        msg.debug("stopping: autoload disabled")
         return
     elseif #dir == 0 then
-        msg.verbose("stopping: not a local path")
+        msg.debug("stopping: not a local path")
         return
     end
 
@@ -227,7 +310,7 @@ function find_and_add_entries()
     -- check if this is a manually made playlist
     if (pl_count > 1 and autoloaded == nil) or
        (pl_count == 1 and EXTENSIONS[string.lower(this_ext)] == nil) then
-        msg.verbose("stopping: manually made playlist")
+        msg.debug("stopping: manually made playlist")
         return
     else
         if pl_count == 1 then
@@ -237,7 +320,7 @@ function find_and_add_entries()
         end
     end
 
-    local extensions = {}
+    local extensions
     if o.same_type then
         if EXTENSIONS_VIDEO[string.lower(this_ext)] ~= nil then
             extensions = EXTENSIONS_VIDEO
@@ -263,7 +346,7 @@ function find_and_add_entries()
     end
 
     if next(files) == nil then
-        msg.verbose("no other files or directories in directory")
+        msg.debug("no other files or directories in directory")
         return
     end
 
@@ -298,10 +381,10 @@ function find_and_add_entries()
             -- skip files that are/were already in the playlist
             if not added_entries[file] then
                 if direction == -1 then
-                    msg.info("Prepending " .. file)
+                    msg.verbose("Prepending " .. file)
                     table.insert(append[-1], 1, {file, pl_current + i * direction + 1})
                 else
-                    msg.info("Adding " .. file)
+                    msg.verbose("Adding " .. file)
                     if pl_count > 1 then
                         table.insert(append[1], {file, pl_current + i * direction - 1})
                     else
