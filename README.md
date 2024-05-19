@@ -7,12 +7,11 @@ From trying to integrate Anime 4K to a collection of useful scripts.
 # What include?
 1. <b>Anime 4K</b> - improves the quality of anime in real-time. (thx [bloc97](https://github.com/bloc97/Anime4K))
 2. <b>Modernf</b> - amazing youtube like UI. (thx [FinnRaze mpv-osc-modern-f](https://github.com/FinnRaze/mpv-osc-modern-f/tree/main) and ideas/some code [eatsu youtube-ui](https://github.com/eatsu/mpv-osc-youtube-ui))
-3. <b>Russian Layout Fix</b> - now there are no problems with hotkeys on the russian layout. (thx [Zenwar](https://github.com/zenwarr/mpv-config/blob/master/scripts/russian-layout-bindings.lua))
-4. <b>Thumbfast</b> - High-performance on-the-fly thumbnailer script. (thx [po5](https://github.com/po5/thumbfast))
-5. <b>Autoload</b> - Allows you to switch between files in the same folder. (thx [mpv dev](https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua))
-6. <b>SmartCopyPaste</b> - Allows you to use a simple ctrl+c to insert into the player a link from YouTube and not only. (thx [Eisa01](https://github.com/Eisa01/mpv-scripts))
-7. <b>Discord RPC</b> - Allows others to see the title of what you are currently watching on Discord. (thx [noaione](https://github.com/noaione/mpv-discordRPC))
-8. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik](https://github.com/SilverEzhik/mpv-install))
+3. <b>Thumbfast</b> - High-performance on-the-fly thumbnailer script. (thx [po5](https://github.com/po5/thumbfast))
+4. <b>Autoload</b> - Allows you to switch between files in the same folder. (thx [mpv dev](https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua))
+5. <b>SmartCopyPaste</b> - Allows you to use a simple ctrl+c to insert into the player a link from YouTube and not only. (thx [Eisa01](https://github.com/Eisa01/mpv-scripts))
+6. <b>Discord RPC</b> - Allows others to see the title of what you are currently watching on Discord. (thx [noaione](https://github.com/noaione/mpv-discordRPC))
+7. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik](https://github.com/SilverEzhik/mpv-install))
 
 # How to install?
 1. Download latest the [files in this repository](https://github.com/Donate684/mpv-anime/archive/refs/heads/main.zip) and extract anywhere.
