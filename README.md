@@ -19,7 +19,7 @@ From trying to integrate Anime 4K to a collection of useful scripts.
 Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/wiki/Haswell_(microarchitecture)) or [AMD Excavator](https://en.wikipedia.org/wiki/Excavator_(microarchitecture)) download builds without v3 if you have an older processor.
 3. Extract archive in mpv folder.
 4. If u want integration with OS run with admin mpv-install.bat in mpv folder (not in mpv\installer).
-5. If u want youtube support run updater.bat and download latest youtubedl.
+5. If u want youtube support run updater.bat and download latest youtube-dl.
 
 # Files?
 | Plugin | Files |
