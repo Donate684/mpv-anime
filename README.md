@@ -9,7 +9,7 @@ From trying to integrate Anime 4K to a collection of useful scripts.
 2. <b>ModernZ</b> - amazing UI. (thx [Samillion](https://github.com/Samillion/ModernZ))
 3. <b>Thumbfast</b> - High-performance on-the-fly thumbnailer script. (thx [po5](https://github.com/po5/thumbfast))
 4. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [SilverEzhik](https://github.com/SilverEzhik/mpv-install))
-5. <b>Fuzzydir</b> - Search external audio/subtitles in the file's directory and all its subdirectories recursively (thx [sibwaf]([https://github.com/po5/thumbfast](https://github.com/sibwaf/mpv-scripts/blob/master/fuzzydir.lua)))
+5. <b>Fuzzydir</b> - Search external audio/subtitles in the file's directory and all its subdirectories recursively (thx [sibwaf](https://github.com/sibwaf/mpv-scripts/blob/master/fuzzydir.lua))
 
 # How to install?
 1. Download latest the [files in this repository](https://github.com/Donate684/mpv-anime/archive/refs/heads/main.zip) and extract mpv folder anywhere.
