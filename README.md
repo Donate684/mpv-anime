@@ -15,7 +15,7 @@ Collection of useful scripts for mpv.
 2. Download [latest mpv build](https://sourceforge.net/projects/mpv-player-windows/files/)<br/>
 Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/wiki/Haswell_(microarchitecture)) or [AMD Excavator](https://en.wikipedia.org/wiki/Excavator_(microarchitecture)) download builds without v3 if you have an older processor.
 3. Extract archive in mpv folder.
-4. If u want integration with OS run with admin mpv-single-instance-install.bat or mpv-install.bat in mpv\installer
+4. If u want integration with OS run install.bat in mpv\installer
 
 # Files?
 | Plugin | Files |
