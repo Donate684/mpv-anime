@@ -23,6 +23,6 @@ Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/w
 | :-: | :-: |
 | ModernZ UI | mpv\portable_config\scripts\modernz.lua, mpv\portable_config\script-opts\modernz.conf |
 | Thumbfast | mpv\portable_config\scripts\thumbfast.lua, mpv\portable_config\script-opts\thumbfast.conf |
-| mpv-install | mpv\installer\mpv-single-instance-install.bat, mpv\installer\mpv-single-instance-uninstall.bat, mpv\umpvw.exe |
+| mpv-install | mpv\installer\install.bat, mpv\installer\install.ps1, mpv\installer\mpv-icon.ico, mpv\umpvw.exe |
 | Fuzzydir | mpv\portable_config\scripts\modernz.lua\fuzzydir.lua, mpv\portable_config\mpv.conf search # --- External Audio/Subtitle Loading (for fuzzydir.lua) --- |
 | Autoload | mpv\portable_config\scripts\autoload.lua, mpv\portable_config\script-opts\autoload.conf |
