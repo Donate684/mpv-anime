@@ -1,28 +1,53 @@
 # mpv-anime
 
-Collection of useful scripts for mpv.
+A curated collection of useful scripts and configurations for the mpv media player, optimized for a modern anime viewing experience on Windows.
 
 ![preview](preview.png?raw=true)
 
-# What include?
-1. <b>ModernZ</b> - amazing UI. (thx [Samillion](https://github.com/Samillion/ModernZ))
-2. <b>Thumbfast</b> - High-performance on-the-fly thumbnailer script. (thx [po5](https://github.com/po5/thumbfast))
-3. <b>mpv-install</b> - When integrated into a system, allows only one mpv window to be used if you open any file. (thx [Donate684](https://github.com/Donate684/mpv-install-ps))
-4. <b>Fuzzydir</b> - Search external audio/subtitles in the file's directory and all its subdirectories recursively (thx [sibwaf](https://github.com/sibwaf/mpv-scripts/blob/master/fuzzydir.lua))
-5. <b>Autoload</b> - Script automatically loads playlist entries before and after thecurrently played file (thx [mpv dev](https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua))
+## Features
 
-# How to install?
-1. Download latest the [files in this repository](https://github.com/Donate684/mpv-anime/archive/refs/heads/main.zip) and extract mpv folder anywhere.
-2. Download [latest mpv build](https://sourceforge.net/projects/mpv-player-windows/files/)<br/>
-Tip. 64bit-v3 require CPU circa 2015: [Intel Haswell](https://en.wikipedia.org/wiki/Haswell_(microarchitecture)) or [AMD Excavator](https://en.wikipedia.org/wiki/Excavator_(microarchitecture)) download builds without v3 if you have an older processor.
-3. Extract archive in mpv folder.
-4. If u want integration with OS run install.bat in mpv\installer
+*   **Modern UI:** Includes the sleek and customizable **ModernZ** interface.
+*   **Fast Preview Thumbnails:** Integrates **Thumbfast** for high-performance seekbar previews.
+*   **Single Instance & OS Integration:** Uses **mpv-install** scripts to ensure only one mpv window opens and integrates with Windows file associations (optional).
+*   **Recursive External File Search:** **Fuzzydir** automatically searches the current directory and subdirectories for matching external audio tracks and subtitles.
+*   **Seamless Playlist Loading:** **Autoload** pre-loads adjacent files in the playlist for smoother transitions.
+*   **Portable Configuration:** All settings and scripts are contained within the `portable_config` directory, keeping your main mpv configuration clean if you have one.
 
-# Files?
-| Plugin | Files |
-| :-: | :-: |
-| ModernZ UI | mpv\portable_config\scripts\modernz.lua, mpv\portable_config\script-opts\modernz.conf |
-| Thumbfast | mpv\portable_config\scripts\thumbfast.lua, mpv\portable_config\script-opts\thumbfast.conf |
-| mpv-install | mpv\installer\install.bat, mpv\installer\install.ps1, mpv\installer\mpv-icon.ico, mpv\umpvw.exe |
-| Fuzzydir | mpv\portable_config\scripts\modernz.lua\fuzzydir.lua, mpv\portable_config\mpv.conf search # --- External Audio/Subtitle Loading (for fuzzydir.lua) --- |
-| Autoload | mpv\portable_config\scripts\autoload.lua, mpv\portable_config\script-opts\autoload.conf |
+## Requirements
+
+*   **Operating System:** Windows (due to the included installer scripts). The core scripts (ModernZ, Thumbfast, Fuzzydir, Autoload) may work on other OSes, but the installation process provided is Windows-specific.
+*   **mpv Player:** A recent build of mpv for Windows.
+
+## Installation
+
+1.  **Download this Repository:** Download the latest ZIP archive of this repository by clicking [here](https://github.com/Donate684/mpv-anime/archive/refs/heads/main.zip) and extract the `mpv` folder somewhere on your computer.
+2.  **Download mpv Player:** Download the [latest mpv build from sourceforge](https://sourceforge.net/projects/mpv-player-windows/files/).
+    *   **Tip:** Builds marked `64bit-v3` require a relatively modern CPU (circa 2015+, like Intel Haswell or AMD Excavator). If you have an older processor, download a build *without* `v3` in its name (e.g., `x86_64`).
+3.  **Combine Files:** Extract the downloaded mpv player archive. Copy the contents (including `mpv.exe`, `mpv.com`, `installer/mpv.ico`, etc.) directly into the `mpv` folder you extracted in Step 1. The `mpv.exe` file should be at the root of the `mpv` folder alongside the `portable_config` and `installer` directories.
+4.  **(Optional) OS Integration:** If you want mpv to open files in a single window and associate video files with this setup, navigate into the `mpv\installer` directory, right-click on `install.bat` and select "Run as administrator".
+
+## Included Components
+
+| Component      | Files                                                                                                  | Original Author/Source                                                                |
+| :------------- | :----------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------ |
+| ModernZ UI     | `portable_config/scripts/modernz.lua`, `portable_config/script-opts/modernz.conf`                    | [Samillion/ModernZ](https://github.com/Samillion/ModernZ)                             |
+| Thumbfast      | `portable_config/scripts/thumbfast.lua`, `portable_config/script-opts/thumbfast.conf`                  | [po5/thumbfast](https://github.com/po5/thumbfast)                                     |
+| mpv-install    | `installer/install.bat`, `installer/install.ps1`, `installer/mpv-icon.ico`, `umpvw.exe`                  | [Donate684/mpv-install-ps](https://github.com/Donate684/mpv-install-ps)               |
+| Fuzzydir       | `portable_config/scripts/fuzzydir.lua` (Configuration in `portable_config/mpv.conf`)                   | [sibwaf/mpv-scripts](https://github.com/sibwaf/mpv-scripts/blob/master/fuzzydir.lua)   |
+| Autoload       | `portable_config/scripts/autoload.lua`, `portable_config/script-opts/autoload.conf`                    | [mpv-player/mpv Tools](https://github.com/mpv-player/mpv/blob/master/TOOLS/lua/autoload.lua) |
+
+*Note: Fuzzydir settings are located within `portable_config/mpv.conf` under the section `# --- External Audio/Subtitle Loading (for fuzzydir.lua) ---`.*
+
+## Configuration
+
+*   Core mpv settings can be adjusted in `mpv\portable_config\mpv.conf`.
+*   Script-specific options are located in `mpv\portable_config\script-opts\`.
+
+## Acknowledgements
+
+Special thanks to the creators of the included scripts:
+
+*   [Samillion](https://github.com/Samillion) for ModernZ
+*   [po5](https://github.com/po5) for Thumbfast
+*   [sibwaf](https://github.com/sibwaf) for Fuzzydir
+*   The [mpv developers](https://github.com/mpv-player/mpv) for the Autoload script and the player itself.
