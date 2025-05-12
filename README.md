@@ -24,7 +24,7 @@ A curated collection of useful scripts and configurations for the mpv media play
 2.  **Download mpv Player:** Download the [latest mpv build from sourceforge](https://sourceforge.net/projects/mpv-player-windows/files/).
     *   **Tip:** Builds marked `64bit-v3` require a relatively modern CPU (circa 2015+, like Intel Haswell or AMD Excavator). If you have an older processor, download a build *without* `v3` in its name (e.g., `x86_64`).
 3.  **Combine Files:** Extract the downloaded mpv player archive. Copy the contents (including `mpv.exe`, `mpv.com`, `installer/mpv.ico`, etc.) directly into the `mpv` folder you extracted in Step 1. The `mpv.exe` file should be at the root of the `mpv` folder alongside the `portable_config` and `installer` directories.
-4.  **(Optional) OS Integration:** If you want mpv to open files in a single window and associate video files with this setup, navigate into the `mpv\installer` directory, right-click on `install.bat` and select "Run as administrator".
+4.  **(Optional) OS Integration:** If you want mpv to open files in a single window and associate video files with this setup, navigate into the `mpv\installer` directory, and run `install.bat`.
 
 ## Included Components
 
