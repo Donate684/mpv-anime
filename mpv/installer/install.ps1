@@ -418,7 +418,7 @@ function Start-Uninstallation {
     Remove-RegKey -Path (Join-Path -Path $AppPathsKeyBase -ChildPath $UmpvwExeName)
     
     # --- STAGE 5: Finalization ---
-    Log-Message "Uninstallation complete! A system restart may be required for all changes to take full effect." -Color "DarkGreen"
+    Log-Message "Uninstallation complete!" -Color "DarkGreen"
     $Global:InstallButton.Text = "Install"
     $Global:InstallButton.Enabled = $true
     $Global:UninstallButton.Enabled = $true
