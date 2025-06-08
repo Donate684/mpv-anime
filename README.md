@@ -19,7 +19,8 @@ A curated collection of useful scripts and configurations for the mpv media play
 *   **mpv Player:** A recent build of mpv for Windows.
 
 ## Installation
-
+1. On Windows download [1.click.installer.7z](https://github.com/Donate684/mpv-anime/releases/tag/1.0) extract anywhere and run ```install.bat```
+## If u want manual installation or you have other OS:
 1.  **Download this Repository:** Download the latest ZIP archive of this repository by clicking [here](https://github.com/Donate684/mpv-anime/archive/refs/heads/main.zip) and extract the `mpv` folder somewhere on your computer.
 2.  **Download mpv Player:** Download the [latest mpv build from sourceforge](https://sourceforge.net/projects/mpv-player-windows/files/).
     *   **Tip:** Builds marked `64bit-v3` require a relatively modern CPU (circa 2015+, like Intel Haswell or AMD Excavator). If you have an older processor, download a build *without* `v3` in its name (e.g., `x86_64`).
