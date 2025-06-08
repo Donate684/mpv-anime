@@ -175,7 +175,7 @@ function Initialize-Form {
     $MainTable.Controls.Add($CheckboxPanel, 0, 2)
     
     $Global:IntegrationCheckBox = New-Object System.Windows.Forms.CheckBox
-    $IntegrationCheckBox.Text = "Вызвать механизм интеграции в систему"
+    $IntegrationCheckBox.Text = "Run system integration mechanism"
     $IntegrationCheckBox.AutoSize = $true
     $IntegrationCheckBox.Checked = $true
     $CheckboxPanel.Controls.Add($IntegrationCheckBox)
