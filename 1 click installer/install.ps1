@@ -84,7 +84,7 @@ function Start-Installation {
   <channel>weekly</channel>
   <arch>x86_64-v3</arch>
   <autodelete>true</autodelete>
-  <getffmpeg>true</getffmpeg>
+  <getffmpeg>false</getffmpeg>
 </settings>
 "@
         Set-Content -Path (Join-Path $InstallDir "settings.xml") -Value $SettingsXmlContent -Encoding UTF8
