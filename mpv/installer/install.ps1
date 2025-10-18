@@ -342,11 +342,6 @@ function Start-Installation {
     $Global:InstallButton.Text = "Re-install"
     $Global:InstallButton.Enabled = $true
     $Global:UninstallButton.Enabled = $true
-
-    if ($Global:OpenDefaultProgramsCheckBox.Checked) {
-        Log-Message "Opening Default Programs settings..."
-        Start-Process "ms-settings:defaultapps"
-    }
 }
 
 function Start-Uninstallation {
@@ -477,12 +472,6 @@ function Initialize-Form {
     $CheckboxPanel.AutoSize = $true
     $CheckboxPanel.Margin = [System.Windows.Forms.Padding]::new(10, 0, 10, 5)
     $MainTable.Controls.Add($CheckboxPanel, 0, 2)
-
-    $Global:OpenDefaultProgramsCheckBox = New-Object System.Windows.Forms.CheckBox
-    $OpenDefaultProgramsCheckBox.Text = "Open 'Default Apps' settings after installation"
-    $OpenDefaultProgramsCheckBox.AutoSize = $true
-    $OpenDefaultProgramsCheckBox.Checked = $true
-    $CheckboxPanel.Controls.Add($OpenDefaultProgramsCheckBox)
 
     # --- Button Panel ---
     $ButtonPanel = New-Object System.Windows.Forms.FlowLayoutPanel
